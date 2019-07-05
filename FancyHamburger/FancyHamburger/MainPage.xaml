@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FancyHamburger.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Frame
+            x:Name="Sidebar"
+            Padding="0"
+            BackgroundColor="LightGray"
+            HorizontalOptions="Start"
+            VerticalOptions="Fill"
+            WidthRequest="160">
+
+            <ListView
+                Margin="0,80,0,0"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Start"
+                ItemTapped="ListView_ItemTapped"
+                ItemsSource="{Binding .}"
+                SelectionMode="None"
+                SeparatorVisibility="None"
+                VerticalOptions="Fill"
+                WidthRequest="160">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label
+                                Margin="20,0,0,0"
+                                Text="{Binding MenuTitle}"
+                                VerticalOptions="Center" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Frame>
+        <ContentView x:Name="MainContent" BackgroundColor="Yellow" />
+
+        <Grid
+            x:Name="HamburgerButton"
+            Margin="20,40,0,0"
+            HorizontalOptions="Start"
+            RowSpacing="4"
+            VerticalOptions="Start"
+            WidthRequest="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3" />
+                <RowDefinition Height="3" />
+                <RowDefinition Height="3" />
+            </Grid.RowDefinitions>
+
+            <BoxView
+                Grid.Row="0"
+                BackgroundColor="Black"
+                CornerRadius="1.5" />
+            <BoxView
+                x:Name="MiddleBar"
+                Grid.Row="1"
+                BackgroundColor="Black"
+                CornerRadius="1.5" />
+            <BoxView
+                Grid.Row="2"
+                BackgroundColor="Black"
+                CornerRadius="1.5" />
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+            </Grid.GestureRecognizers>
+        </Grid>
+        <!--<BoxView
+            x:Name="HamburgerButton"
+            Margin="20,40,0,0"
+            HeightRequest="30"
+            HorizontalOptions="Start"
+            VerticalOptions="Start"
+            WidthRequest="30"
+            Color="Green">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+            </BoxView.GestureRecognizers>
+        </BoxView>-->
+    </Grid>
+
+
+</ContentPage>
